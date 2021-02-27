@@ -1,4 +1,5 @@
-import Markdown from 'markdown-to-jsx';
+import hydrate from 'next-mdx-remote/hydrate';
+import renderToString from 'next-mdx-remote/render-to-string';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Layout from '../../components/layout';
@@ -8,6 +9,7 @@ import { getPost, getPosts } from '../../services/cms';
 import './post.module.scss';
 
 const wordsPerMinute = 200; // Average case.
+const components = {};
 
 const getReadingTime = (body) => {
   const textLength = body.split(' ').length; // Split by words
@@ -18,6 +20,7 @@ const Post = (props) => {
   const date = new Date(props.date);
   const formattedDate = new Intl.DateTimeFormat('en', { year: 'numeric', month: 'long', day: 'numeric' }).format(date);
   const readingTime = getReadingTime(props.body);
+  const content = hydrate(props.source, { components });
   return (
     <>
       <Meta
@@ -45,7 +48,7 @@ const Post = (props) => {
             <div style={{ width: '100%', height: 'auto', marginBottom: '25px' }}>
               <img src={props.image.url} alt={props.image.alt} width="1200" height="800" />
             </div>
-            <Markdown className="body">{props.body}</Markdown>
+            <div className="body">{content}</div>
           </article>
           <Reach />
         </div>
@@ -66,6 +69,7 @@ export async function getStaticProps(context) {
   const post = (await getPost(context.params.slug)) || {};
   return {
     props: {
+      source: await renderToString(post.body, { components }),
       ...post,
     },
   };

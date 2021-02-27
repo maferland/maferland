@@ -24,5 +24,5 @@
     "no-return-assign": ["off"],
     "no-param-reassign": ["off"]
   },
-  "plugins": ["emotion"]
+  "plugins": ["@emotion"]
 }
