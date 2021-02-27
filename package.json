@@ -20,8 +20,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@emotion/babel-preset-css-prop": "^10.0.27",
-    "@emotion/core": "^10.0.35",
+    "@emotion/core": "^11.0.0",
+    "@emotion/react": "^11.1.5",
+    "@emotion/styled": "^11.1.5",
     "@maferland/github-activity": "^0.2.4",
     "@maferland/hooks": "^0.1.0",
     "@maferland/spotify-react": "^0.3.0",
@@ -42,6 +43,8 @@
     "webpack": "^4.44.1"
   },
   "devDependencies": {
+    "@emotion/babel-plugin": "^11.2.0",
+    "@emotion/babel-preset-css-prop": "^11.2.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
