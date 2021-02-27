@@ -14,7 +14,8 @@
     "fix": "eslint --fix --ext .js --ignore-path .gitignore .",
     "shorten": "netlify-shortener",
     "deploy": "yarn export && netlify deploy",
-    "analyze": "ANALYZE=true yarn build"
+    "analyze": "ANALYZE=true yarn build",
+    "postinstall": "husky install"
   },
   "keywords": [],
   "author": "",
