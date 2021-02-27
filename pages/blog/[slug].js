@@ -1,5 +1,4 @@
 import Markdown from 'markdown-to-jsx';
-import moment from 'moment';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Layout from '../../components/layout';
@@ -16,7 +15,7 @@ const getReadingTime = (body) => {
 };
 
 const Post = (props) => {
-  const date = moment(props.date).format('MMMM Do YYYY');
+  const date = new Intl.DateTimeFormat('en', { year: 'numeric', month: 'numeric', day: 'numeric' }).format(props.date);
   const readingTime = getReadingTime(props.body);
   return (
     <>
