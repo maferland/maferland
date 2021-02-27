@@ -15,7 +15,8 @@ const getReadingTime = (body) => {
 };
 
 const Post = (props) => {
-  const date = new Intl.DateTimeFormat('en', { year: 'numeric', month: 'numeric', day: 'numeric' }).format(props.date);
+  const date = new Date(props.date);
+  const formattedDate = new Intl.DateTimeFormat('en', { year: 'numeric', month: 'long', day: 'numeric' }).format(date);
   const readingTime = getReadingTime(props.body);
   return (
     <>
@@ -38,7 +39,7 @@ const Post = (props) => {
                 style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', textAlign: 'right' }}
               >
                 <p>{`${readingTime} min read`}</p>
-                <p className="date">{date}</p>
+                <p className="date">{formattedDate}</p>
               </span>
             </div>
             <div style={{ width: '100%', height: 'auto', marginBottom: '25px' }}>
