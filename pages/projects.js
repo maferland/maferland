@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core';
+import { jsx } from '@emotion/react';
 import { UserActivityFeed } from '@maferland/github-activity';
 import facepaint from 'facepaint';
 import BoxLink from '../components/box-link';

@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core';
+import { jsx } from '@emotion/react';
 import facepaint from 'facepaint';
 import Layout from '../components/layout';
 import RecentlyPlayed from '../components/recently-played';

@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core';
+import { jsx } from '@emotion/react';
 import { useRecentlyPlayed } from '@maferland/spotify-react';
 import facepaint from 'facepaint';
 import Grid from './grid';
