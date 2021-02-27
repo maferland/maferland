@@ -1,22 +1,19 @@
-import { css } from '@emotion/react';
-import facepaint from 'facepaint';
+import styled from '@emotion/styled';
 
-const mq = facepaint(['@media(max-width: 1200px)']);
-
-const sectionStyle = css`
+const SectionEl = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
+  @media (max-width: 1200px) {
+    flex-direction: column;
+  }
 `;
 
-const Section = ({ children, className, css: customCss, id, fullheight = true }) => (
-  <section
-    id={id}
-    className={`${fullheight ? 'fullheight' : ''} ${className}`}
-    css={mq(sectionStyle, { flexDirection: ['row', 'column'] }, customCss)}
-  >
+const Section = ({ children, className, css, id, fullheight = true }) => (
+  <SectionEl id={id} style={css} className={`${fullheight ? 'fullheight' : ''} ${className}`}>
     {children}
-  </section>
+  </SectionEl>
 );
 
 export default Section;

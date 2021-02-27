@@ -1,17 +1,18 @@
-import facepaint from 'facepaint';
+import styled from '@emotion/styled';
 
-const mq = facepaint(['@media(max-width: 1200px)']);
+const GridEl = styled.div`
+  display: grid;
+  grid-template-columns: repeat(${(props) => props.width}, 1fr);
+  grid-gap: 1em;
+  @media (max - width: 1200px) {
+    grid-template-columns: repeat(${(props) => props.mobileWidth}, 1fr);
+  }
+`;
 
 const Grid = ({ children, width = 5, mobileWidth = 2 }) => (
-  <div
-    css={mq({
-      display: 'grid',
-      gridTemplateColumns: [`repeat(${width}, 1fr)`, `repeat(${mobileWidth},1fr)`],
-      gridGap: '1em',
-    })}
-  >
+  <GridEl width={width} mobileWidth={mobileWidth}>
     {children}
-  </div>
+  </GridEl>
 );
 
 export default Grid;
